@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Task9_2 {
+public class Task9_4 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -20,21 +20,18 @@ public class Task9_2 {
 
 	private static List<Integer> filterList(List<Integer> list) {
 		List<Integer> newList = new ArrayList<>(list.size());
-		Integer last = null;
-		boolean resultForLast = true;
-		boolean resultForCurrent;
+		boolean foundZero = false;
 		//Используем ссылочный тип, чтобы избежать ненужного копирования
 		for (Integer current : list) {
-			if (last == null) {
-				last = current;
-				resultForLast = true;
-			} else {
-				resultForCurrent = current - last > 0;
-				if (resultForLast && resultForCurrent) {
-					newList.add(last);
+			if (current == 0) {
+				if (!foundZero) {
+					foundZero = true;
+				} else {
+					//Если встретили второй ноль, то выходим из цикла
+					break;
 				}
-				resultForLast = !resultForCurrent;
-				last = current;
+			} else if (foundZero) {
+				newList.add(current);
 			}
 		}
 		return newList;
