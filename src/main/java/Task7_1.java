@@ -17,6 +17,7 @@ public class Task7_1 {
 		}
 
 		printMatrix(matrix);
+
 		for (int i = N; i-- > 0;) {
 			if (containsZero(matrix[i])) {
 				swapColumns(matrix, i, N - 1);
@@ -51,7 +52,7 @@ public class Task7_1 {
 	}
 
 	private static boolean containsZero(int[] ints) {
-		for (int value: ints) {
+		for (int value : ints) {
 			if (value == 0) {
 				return true;
 			}
