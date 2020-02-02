@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Task5_5 {
 
 	public static void main(String[] args) {
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter N: ");
 		int N = scanner.nextInt();

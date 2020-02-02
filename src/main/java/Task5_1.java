@@ -5,7 +5,7 @@ public class Task5_1 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter N: ");
+		System.out.println("Enter N: ");
 		int N = scanner.nextInt();
 		int[] array = new int[N];
 		System.out.println("Enter " + N + " array elements:");
@@ -32,6 +32,6 @@ public class Task5_1 {
 		 */
 		System.out.println(Arrays.toString(array));
 		System.out.println("Max value: " + max);
-		System.out.println("Max value pos: " + imax);
+		System.out.println("Max value index: " + imax);
 	}
 }

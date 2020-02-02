@@ -31,8 +31,8 @@ public class Task6_5 {
 		}
 		int minValueInColumn = minInCol(array, maxColumnIdx);
 		System.out.println("[");
-		for (int[] ints : array) {
-			System.out.println("\t" + Arrays.toString(ints));
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("[");
 		}
 		System.out.println("]");
 		System.out.printf("Max value in array = %d in column %d. \nMin value in this column = %d",
