@@ -20,22 +20,29 @@ public class Task9_2 {
 
 	private static List<Integer> filterList(List<Integer> list) {
 		List<Integer> newList = new ArrayList<>(list.size());
-		Integer last = null;
-		boolean resultForLast = true;
-		boolean resultForCurrent;
+		Integer current = null;
+		boolean currentLessThenLeft = true;
+		boolean currentLessThanRight;
 		//Используем ссылочный тип, чтобы избежать ненужного копирования
-		for (Integer current : list) {
-			if (last == null) {
-				last = current;
-				resultForLast = true;
+		for (Integer right : list) {
+			if (current == null) {
+				current = right;
+				currentLessThenLeft = true;
 			} else {
-				resultForCurrent = current - last > 0;
-				if (resultForLast && resultForCurrent) {
-					newList.add(last);
+				currentLessThanRight = current < right;
+				//Если current НЕ меньше left (элемент слева) или НЕ меньше right (справа), то добавляем его
+				if (!currentLessThenLeft || !currentLessThanRight) {
+					newList.add(current);
 				}
-				resultForLast = !resultForCurrent;
-				last = current;
+				//Здесь мы мысленно сдвигаемся вправо, и тот элемент, который был текущим, становится предыдущим
+				//В этот момент мы мысленно работаем с элементом right
+				//То есть right становится current, а current становится left
+				currentLessThenLeft = right < current;
+				current = right;
 			}
+		}
+		if (!currentLessThenLeft) {
+			newList.add(current);
 		}
 		return newList;
 	}
